@@ -1,0 +1,55 @@
+{
+  "name": "n8n-nodes-asyntai",
+  "version": "1.0.0",
+  "description": "n8n community node for Asyntai — AI chatbot: send chat messages, fetch leads and conversations, manage the knowledge base, and trigger workflows on chat events.",
+  "keywords": [
+    "n8n-community-node-package",
+    "asyntai",
+    "ai",
+    "chatbot",
+    "customer-support",
+    "leads"
+  ],
+  "license": "MIT",
+  "homepage": "https://asyntai.com/documentation/api/",
+  "author": {
+    "name": "Asyntai",
+    "email": "hello@asyntai.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asyntai/n8n-nodes-asyntai.git"
+  },
+  "engines": {
+    "node": ">=18.10"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && node scripts/copy-assets.js",
+    "dev": "tsc --watch",
+    "lint": "eslint nodes credentials --ext .ts",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist",
+    "index.js"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/AsyntaiApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Asyntai/Asyntai.node.js",
+      "dist/nodes/Asyntai/AsyntaiTrigger.node.js"
+    ]
+  },
+  "devDependencies": {
+    "typescript": "~5.5.0",
+    "@types/node": "^18.19.0",
+    "n8n-workflow": "^1.48.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
