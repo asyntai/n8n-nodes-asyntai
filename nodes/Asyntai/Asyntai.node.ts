@@ -5,7 +5,7 @@ export class Asyntai implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Asyntai',
 		name: 'asyntai',
-		icon: { light: 'file:asyntai.svg', dark: 'file:asyntai.svg' },
+		icon: { light: 'file:asyntai.svg', dark: 'file:asyntai.dark.svg' },
 		group: ['transform'],
 		version: 1,
 		usableAsTool: true,

@@ -11,7 +11,7 @@ export class AsyntaiTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Asyntai Trigger',
 		name: 'asyntaiTrigger',
-		icon: { light: 'file:asyntai.svg', dark: 'file:asyntai.svg' },
+		icon: { light: 'file:asyntai.svg', dark: 'file:asyntai.dark.svg' },
 		group: ['trigger'],
 		version: 1,
 		usableAsTool: true,

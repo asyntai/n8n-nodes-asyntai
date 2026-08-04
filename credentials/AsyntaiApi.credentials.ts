@@ -11,7 +11,10 @@ export class AsyntaiApi implements ICredentialType {
 
 	displayName = 'Asyntai API';
 
-	icon: Icon = { light: 'file:../nodes/Asyntai/asyntai.svg', dark: 'file:../nodes/Asyntai/asyntai.svg' };
+	icon: Icon = {
+		light: 'file:../nodes/Asyntai/asyntai.svg',
+		dark: 'file:../nodes/Asyntai/asyntai.dark.svg',
+	};
 
 	documentationUrl = 'https://asyntai.com/documentation/api/';
 
