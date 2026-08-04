@@ -11,9 +11,10 @@ export class AsyntaiTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Asyntai Trigger',
 		name: 'asyntaiTrigger',
-		icon: 'file:asyntai.svg',
+		icon: { light: 'file:asyntai.svg', dark: 'file:asyntai.svg' },
 		group: ['trigger'],
 		version: 1,
+		usableAsTool: true,
 		subtitle: '={{$parameter["events"].join(", ")}}',
 		description: 'Starts a workflow when events happen in your Asyntai chatbot',
 		defaults: {
@@ -136,7 +137,13 @@ export class AsyntaiTrigger implements INodeType {
 						url: `https://asyntai.com/api/v1/webhooks/${webhookData.webhookId}/`,
 						json: true,
 					});
-				} catch {
+				} catch (error) {
+					// Surface the failure instead of hiding it — a webhook left
+					// behind on the Asyntai side would keep sending events.
+					this.logger.error(
+						`Asyntai Trigger: failed to delete webhook ${webhookData.webhookId}`,
+						{ error },
+					);
 					return false;
 				}
 				delete webhookData.webhookId;

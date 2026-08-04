@@ -5,9 +5,10 @@ export class Asyntai implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Asyntai',
 		name: 'asyntai',
-		icon: 'file:asyntai.svg',
+		icon: { light: 'file:asyntai.svg', dark: 'file:asyntai.svg' },
 		group: ['transform'],
 		version: 1,
+		usableAsTool: true,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
 		description:
 			'Interact with the Asyntai AI chatbot: send messages, fetch leads and conversations, manage the knowledge base',
@@ -223,7 +224,7 @@ export class Asyntai implements INodeType {
 						name: 'Get Many',
 						value: 'getAll',
 						action: 'Get many websites',
-						description: 'List all websites on your account',
+						description: 'List many websites on your account',
 						routing: {
 							request: {
 								method: 'GET',

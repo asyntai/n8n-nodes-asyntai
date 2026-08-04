@@ -3,12 +3,15 @@ import type {
 	ICredentialTestRequest,
 	ICredentialType,
 	INodeProperties,
+	Icon,
 } from 'n8n-workflow';
 
 export class AsyntaiApi implements ICredentialType {
 	name = 'asyntaiApi';
 
 	displayName = 'Asyntai API';
+
+	icon: Icon = { light: 'file:../nodes/Asyntai/asyntai.svg', dark: 'file:../nodes/Asyntai/asyntai.svg' };
 
 	documentationUrl = 'https://asyntai.com/documentation/api/';
 
