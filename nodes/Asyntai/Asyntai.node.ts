@@ -360,9 +360,30 @@ export class Asyntai implements INodeType {
 				default: '',
 				description: 'Specific website ID. If empty, your primary website is used.',
 				displayOptions: {
-					show: { resource: ['knowledge'], operation: ['addText', 'addUrl', 'getAll'] },
+					show: { resource: ['knowledge'], operation: ['addText', 'addUrl'] },
 				},
 				routing: { send: { type: 'body', property: 'website_id' } },
+			},
+			{
+				// Get Many is a GET request — the API reads website_id and limit
+				// from the query string, so these must not be sent as a body.
+				displayName: 'Website ID',
+				name: 'websiteId',
+				type: 'string',
+				default: '',
+				description: 'Specific website ID. If empty, your primary website is used.',
+				displayOptions: { show: { resource: ['knowledge'], operation: ['getAll'] } },
+				routing: { send: { type: 'query', property: 'website_id' } },
+			},
+			{
+				displayName: 'Limit',
+				name: 'limit',
+				type: 'number',
+				typeOptions: { minValue: 1, maxValue: 100 },
+				default: 50,
+				description: 'Max number of results to return',
+				displayOptions: { show: { resource: ['knowledge'], operation: ['getAll'] } },
+				routing: { send: { type: 'query', property: 'limit' } },
 			},
 		],
 	};
